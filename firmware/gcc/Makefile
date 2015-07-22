@@ -72,7 +72,7 @@ SDK_SOURCE_PATH = $(SDK_PATH)/Source/
 TEMPLATE_PATH += $(SDK_SOURCE_PATH)/templates/gcc/
 OUTPUT_BINARY_DIRECTORY := _build
 
-NRF51_TOOLCHAIN_PATH = /opt/nrf51-toolchain/
+NRF51_TOOLCHAIN_PATH = /opt/ion-toolchain/
 
 #system specific search paths for toolchain
 ifeq ($(OS),Windows_NT)
@@ -267,10 +267,7 @@ clean:
 #	nrfjprog --erase
 
 flash: $(OUTPUT_BINARY_DIRECTORY)/$(OUTPUT_FILENAME).bin 
-	sudo node $(NRF51_TOOLCHAIN_PATH)/ionode/flash.js $(OUTPUT_BINARY_DIRECTORY)/$(OUTPUT_FILENAME).bin
-
-publish: $(OUTPUT_BINARY_DIRECTORY)/$(OUTPUT_FILENAME).bin
-	node $(NRF51_TOOLCHAIN_PATH)/lumen-firmware-publisher/upload.js $(OUTPUT_BINARY_DIRECTORY)/$(OUTPUT_FILENAME).bin
+	sudo node /opt/ionode/flash.js $(OUTPUT_BINARY_DIRECTORY)/$(OUTPUT_FILENAME).bin
 
 dfumode:
 	sudo sh ./dfumode.sh

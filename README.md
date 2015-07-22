@@ -3,6 +3,8 @@ ion -- light that speaks
 
 This is the source code repository for the ION smart lamp. All firmware code (including the bootloader) can be found here.
 
+Note that this code requires https://github.com/lavallc/ion-toolchain to build.
+
 If you have any questions, please feel free to open a GitHub issue.
 
 ~ lava
