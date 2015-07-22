@@ -1,0 +1,26 @@
+#include "nrf.h"
+#include "nrf_gpio.h"
+
+
+#ifdef BOARD_SUN_1_1
+
+#define TWI_MASTER_CONFIG_CLOCK_PIN_NUMBER  (9U) 
+#define TWI_MASTER_CONFIG_DATA_PIN_NUMBER (8U) 
+
+#endif
+
+
+#ifdef BOARD_SUN_1_3
+
+#define TWI_MASTER_CONFIG_CLOCK_PIN_NUMBER  (9U)
+#define TWI_MASTER_CONFIG_DATA_PIN_NUMBER (8U)
+
+#endif
+
+
+#ifdef BOARD_SUN_1_3B
+
+#define TWI_MASTER_CONFIG_CLOCK_PIN_NUMBER  (7U)
+#define TWI_MASTER_CONFIG_DATA_PIN_NUMBER (6U)
+
+#endif

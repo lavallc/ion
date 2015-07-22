@@ -1,0 +1,626 @@
+Dependencies for Project 'bootloader', Target 'dfu_dual_bank_ble': (DO NOT MODIFY !)
+F (..\sdk\Source\templates\system_nrf51.c)(0x5314F28C)(-c --cpu Cortex-M0 -D__EVAL --li -g -O3 --apcs=interwork --enum_is_int -I.. -I..\sdk\Include -I..\sdk\Include\sd_common -I..\sdk\Include\app_common -I..\sdk\Include\ble -I..\sdk\Include\ble\ble_services -I..\sdk\Include\s110 -I..\src\include\ble_transport -I..\src\include\hci_transport -I..\src\include -I..\libraries\lava_bootloader -I..\libraries\lava_capsense -I..\libraries\lava_neopixel --c99-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include-I C:\Keil\ARM\Device\Nordic\nRF51822\Include-DNRF51 -DNRF51 -DDEBUG_NRF_USER -DBOARD_NRF6310 -DBOOTLOADER_BANKED -DBLE_STACK_SUPPORT_REQD -o .\_build\system_nrf51.o --omf_browse .\_build\system_nrf51.crf --depend .\_build\system_nrf51.d)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x52852AFA)
+I (C:\Keil\ARM\ARMCC\include\stdbool.h)(0x52852AFA)
+I (..\sdk\Include\nrf.h)(0x5314F28C)
+I (..\sdk\Include\nrf51.h)(0x5314F28C)
+I (C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include\core_cm0.h)(0x512CE342)
+I (C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include\core_cmInstr.h)(0x51BB1A44)
+I (C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include\core_cmFunc.h)(0x512CE342)
+I (..\sdk\Include\system_nrf51.h)(0x5314F28C)
+I (..\sdk\Include\nrf51_bitfields.h)(0x5314F28C)
+I (..\sdk\Include\nrf51_deprecated.h)(0x5314F28C)
+I (..\sdk\Include\compiler_abstraction.h)(0x5314F28C)
+F (..\src\arm_startup_nrf51.s)(0x5314F28C)(--cpu Cortex-M0 --li --pd "__EVAL SETA 1" -g --apcs=interwork -I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include-I C:\Keil\ARM\Device\Nordic\nRF51822\Include--list .\_build\arm_startup_nrf51.lst --xref -o .\_build\arm_startup_nrf51.o --depend .\_build\arm_startup_nrf51.d)
+F (..\src\main.c)(0x54236AC4)(-c --cpu Cortex-M0 -D__EVAL --li -g -O3 --apcs=interwork --enum_is_int -I.. -I..\sdk\Include -I..\sdk\Include\sd_common -I..\sdk\Include\app_common -I..\sdk\Include\ble -I..\sdk\Include\ble\ble_services -I..\sdk\Include\s110 -I..\src\include\ble_transport -I..\src\include\hci_transport -I..\src\include -I..\libraries\lava_bootloader -I..\libraries\lava_capsense -I..\libraries\lava_neopixel --c99-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include-I C:\Keil\ARM\Device\Nordic\nRF51822\Include-DNRF51 -DNRF51 -DDEBUG_NRF_USER -DBOARD_NRF6310 -DBOOTLOADER_BANKED -DBLE_STACK_SUPPORT_REQD -o .\_build\main.o --omf_browse .\_build\main.crf --depend .\_build\main.d)
+I (..\src\include\dfu.h)(0x540A1DAB)
+I (..\src\include\dfu_types.h)(0x5314F28C)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x52852AFA)
+I (..\sdk\Include\nrf51.h)(0x5314F28C)
+I (C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include\core_cm0.h)(0x512CE342)
+I (C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include\core_cmInstr.h)(0x51BB1A44)
+I (C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include\core_cmFunc.h)(0x512CE342)
+I (..\sdk\Include\system_nrf51.h)(0x5314F28C)
+I (..\sdk\Include\app_common\app_util.h)(0x5314F28C)
+I (..\sdk\Include\compiler_abstraction.h)(0x5314F28C)
+I (..\sdk\Include\app_common\app_error.h)(0x5314F28C)
+I (C:\Keil\ARM\ARMCC\include\stdbool.h)(0x52852AFA)
+I (..\sdk\Include\s110\nrf_error.h)(0x5314F28C)
+I (..\src\include\dfu_transport.h)(0x5314F28C)
+I (..\sdk\Include\s110\ble.h)(0x5314F28C)
+I (..\sdk\Include\s110\ble_ranges.h)(0x5314F28C)
+I (..\sdk\Include\s110\ble_types.h)(0x5314F28C)
+I (..\sdk\Include\s110\ble_gap.h)(0x5314F28C)
+I (..\sdk\Include\s110\nrf_svc.h)(0x5314F28C)
+I (..\sdk\Include\s110\ble_l2cap.h)(0x5314F28C)
+I (..\sdk\Include\s110\ble_err.h)(0x5314F28C)
+I (..\sdk\Include\s110\ble_gatt.h)(0x5314F28C)
+I (..\sdk\Include\s110\ble_gattc.h)(0x5314F28C)
+I (..\sdk\Include\s110\ble_gatts.h)(0x5314F28C)
+I (..\src\include\bootloader.h)(0x5314F28C)
+I (..\src\include\bootloader_types.h)(0x5314F28C)
+I (C:\Keil\ARM\ARMCC\include\string.h)(0x52852AFA)
+I (C:\Keil\ARM\ARMCC\include\stddef.h)(0x52852AFA)
+I (..\sdk\Include\nordic_common.h)(0x5314F28C)
+I (..\sdk\Include\nrf.h)(0x5314F28C)
+I (..\sdk\Include\nrf51_bitfields.h)(0x5314F28C)
+I (..\sdk\Include\nrf51_deprecated.h)(0x5314F28C)
+I (..\sdk\Include\nrf_gpio.h)(0x5314F28C)
+I (..\sdk\Include\s110\ble_hci.h)(0x5314F28C)
+I (..\sdk\Include\app_common\app_scheduler.h)(0x5314F28C)
+I (..\sdk\Include\app_common\app_timer.h)(0x5314F28C)
+I (C:\Keil\ARM\ARMCC\include\stdio.h)(0x52852AF4)
+I (..\sdk\Include\app_common\app_gpiote.h)(0x5314F28C)
+I (..\sdk\Include\app_common\app_button.h)(0x5314F28C)
+I (..\sdk\Include\boards.h)(0x5314F28C)
+I (..\sdk\Include\boards/nrf6310.h)(0x5314F28C)
+I (..\sdk\Include\ble\ble_debug_assert_handler.h)(0x5314F28C)
+I (..\sdk\Include\sd_common\softdevice_handler.h)(0x5314F28C)
+I (C:\Keil\ARM\ARMCC\include\stdlib.h)(0x52852AFA)
+I (..\sdk\Include\s110\nrf_sdm.h)(0x5314F28C)
+I (..\sdk\Include\s110\nrf_soc.h)(0x53FB46EB)
+I (..\sdk\Include\s110\nrf_error_soc.h)(0x5314F28C)
+I (..\sdk\Include\s110\nrf_error_sdm.h)(0x5314F28C)
+I (..\sdk\Include\sd_common\ble_stack_handler_types.h)(0x5314F28C)
+I (..\sdk\Include\sd_common\ant_stack_handler_types.h)(0x5314F28C)
+I (..\src\include\pstorage_platform.h)(0x54236B41)
+I (..\src\include\lumen.h)(0x5314F28C)
+I (..\src\include\sun_board.h)(0x53C050E3)
+I (..\libraries\lava_neopixel\neopixel.h)(0x541C534F)
+I (..\sdk\Include\nrf_delay.h)(0x5314F28C)
+I (..\libraries\lava_bootloader\lava_bootloader.h)(0x5314F28C)
+F (..\src\dfu_dual_bank.c)(0x54236D1E)(-c --cpu Cortex-M0 -D__EVAL --li -g -O3 --apcs=interwork --enum_is_int -I.. -I..\sdk\Include -I..\sdk\Include\sd_common -I..\sdk\Include\app_common -I..\sdk\Include\ble -I..\sdk\Include\ble\ble_services -I..\sdk\Include\s110 -I..\src\include\ble_transport -I..\src\include\hci_transport -I..\src\include -I..\libraries\lava_bootloader -I..\libraries\lava_capsense -I..\libraries\lava_neopixel --c99-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include-I C:\Keil\ARM\Device\Nordic\nRF51822\Include-DNRF51 -DNRF51 -DDEBUG_NRF_USER -DBOARD_NRF6310 -DBOOTLOADER_BANKED -DBLE_STACK_SUPPORT_REQD -o .\_build\dfu_dual_bank.o --omf_browse .\_build\dfu_dual_bank.crf --depend .\_build\dfu_dual_bank.d)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x52852AFA)
+I (C:\Keil\ARM\ARMCC\include\stddef.h)(0x52852AFA)
+I (..\src\include\dfu.h)(0x540A1DAB)
+I (..\src\include\dfu_types.h)(0x5314F28C)
+I (..\sdk\Include\nrf51.h)(0x5314F28C)
+I (C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include\core_cm0.h)(0x512CE342)
+I (C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include\core_cmInstr.h)(0x51BB1A44)
+I (C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include\core_cmFunc.h)(0x512CE342)
+I (..\sdk\Include\system_nrf51.h)(0x5314F28C)
+I (..\sdk\Include\app_common\app_util.h)(0x5314F28C)
+I (..\sdk\Include\compiler_abstraction.h)(0x5314F28C)
+I (..\sdk\Include\app_common\app_error.h)(0x5314F28C)
+I (C:\Keil\ARM\ARMCC\include\stdbool.h)(0x52852AFA)
+I (..\sdk\Include\s110\nrf_error.h)(0x5314F28C)
+I (..\sdk\Include\nrf.h)(0x5314F28C)
+I (..\sdk\Include\nrf51_bitfields.h)(0x5314F28C)
+I (..\sdk\Include\nrf51_deprecated.h)(0x5314F28C)
+I (..\sdk\Include\s110\nrf_sdm.h)(0x5314F28C)
+I (..\sdk\Include\s110\nrf_svc.h)(0x5314F28C)
+I (..\sdk\Include\s110\nrf_soc.h)(0x53FB46EB)
+I (..\sdk\Include\s110\nrf_error_soc.h)(0x5314F28C)
+I (..\sdk\Include\s110\nrf_error_sdm.h)(0x5314F28C)
+I (..\sdk\Include\app_common\hci_transport.h)(0x5314F28C)
+I (..\sdk\Include\ble\ble_flash.h)(0x5314F28C)
+I (..\sdk\Include\app_common\app_timer.h)(0x5314F28C)
+I (C:\Keil\ARM\ARMCC\include\stdio.h)(0x52852AF4)
+I (..\sdk\Include\app_common\app_scheduler.h)(0x5314F28C)
+I (..\sdk\Include\nordic_common.h)(0x5314F28C)
+I (..\src\include\bootloader.h)(0x5314F28C)
+I (..\src\include\bootloader_types.h)(0x5314F28C)
+I (..\sdk\Include\app_common\crc16.h)(0x5314F28C)
+I (..\sdk\Include\app_common\pstorage.h)(0x53C050E3)
+I (..\src\include\pstorage_platform.h)(0x54236B41)
+I (..\sdk\Include\nrf_gpio.h)(0x5314F28C)
+I (..\src\include\lumen.h)(0x5314F28C)
+I (..\src\include\sun_board.h)(0x53C050E3)
+I (..\libraries\lava_neopixel\neopixel.h)(0x541C534F)
+I (..\sdk\Include\nrf_delay.h)(0x5314F28C)
+F (..\src\dfu_single_bank.c)(0x5314F28C)()
+F (..\src\bootloader.c)(0x541C3FCC)(-c --cpu Cortex-M0 -D__EVAL --li -g -O3 --apcs=interwork --enum_is_int -I.. -I..\sdk\Include -I..\sdk\Include\sd_common -I..\sdk\Include\app_common -I..\sdk\Include\ble -I..\sdk\Include\ble\ble_services -I..\sdk\Include\s110 -I..\src\include\ble_transport -I..\src\include\hci_transport -I..\src\include -I..\libraries\lava_bootloader -I..\libraries\lava_capsense -I..\libraries\lava_neopixel --c99-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include-I C:\Keil\ARM\Device\Nordic\nRF51822\Include-DNRF51 -DNRF51 -DDEBUG_NRF_USER -DBOARD_NRF6310 -DBOOTLOADER_BANKED -DBLE_STACK_SUPPORT_REQD -o .\_build\bootloader.o --omf_browse .\_build\bootloader.crf --depend .\_build\bootloader.d)
+I (..\src\include\bootloader.h)(0x5314F28C)
+I (C:\Keil\ARM\ARMCC\include\stdbool.h)(0x52852AFA)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x52852AFA)
+I (..\src\include\bootloader_types.h)(0x5314F28C)
+I (..\src\include\dfu_types.h)(0x5314F28C)
+I (..\sdk\Include\nrf51.h)(0x5314F28C)
+I (C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include\core_cm0.h)(0x512CE342)
+I (C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include\core_cmInstr.h)(0x51BB1A44)
+I (C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include\core_cmFunc.h)(0x512CE342)
+I (..\sdk\Include\system_nrf51.h)(0x5314F28C)
+I (..\sdk\Include\app_common\app_util.h)(0x5314F28C)
+I (..\sdk\Include\compiler_abstraction.h)(0x5314F28C)
+I (..\sdk\Include\app_common\app_error.h)(0x5314F28C)
+I (..\sdk\Include\s110\nrf_error.h)(0x5314F28C)
+I (C:\Keil\ARM\ARMCC\include\string.h)(0x52852AFA)
+I (..\src\include\bootloader_util.h)(0x5314F28C)
+I (..\src\include\dfu.h)(0x540A1DAB)
+I (..\src\include\dfu_transport.h)(0x5314F28C)
+I (..\sdk\Include\s110\ble.h)(0x5314F28C)
+I (..\sdk\Include\s110\ble_ranges.h)(0x5314F28C)
+I (..\sdk\Include\s110\ble_types.h)(0x5314F28C)
+I (..\sdk\Include\s110\ble_gap.h)(0x5314F28C)
+I (..\sdk\Include\s110\nrf_svc.h)(0x5314F28C)
+I (..\sdk\Include\s110\ble_l2cap.h)(0x5314F28C)
+I (..\sdk\Include\s110\ble_err.h)(0x5314F28C)
+I (..\sdk\Include\s110\ble_gatt.h)(0x5314F28C)
+I (..\sdk\Include\s110\ble_gattc.h)(0x5314F28C)
+I (..\sdk\Include\s110\ble_gatts.h)(0x5314F28C)
+I (..\sdk\Include\s110\nrf_sdm.h)(0x5314F28C)
+I (..\sdk\Include\s110\nrf_soc.h)(0x53FB46EB)
+I (..\sdk\Include\nrf51_bitfields.h)(0x5314F28C)
+I (..\sdk\Include\s110\nrf_error_soc.h)(0x5314F28C)
+I (..\sdk\Include\s110\nrf_error_sdm.h)(0x5314F28C)
+I (..\sdk\Include\ble\ble_flash.h)(0x5314F28C)
+I (..\sdk\Include\nordic_common.h)(0x5314F28C)
+I (..\sdk\Include\app_common\crc16.h)(0x5314F28C)
+I (..\sdk\Include\app_common\pstorage.h)(0x53C050E3)
+I (..\src\include\pstorage_platform.h)(0x54236B41)
+I (..\sdk\Include\app_common\app_scheduler.h)(0x5314F28C)
+I (..\src\include\lumen.h)(0x5314F28C)
+I (..\src\include\sun_board.h)(0x53C050E3)
+I (..\libraries\lava_neopixel\neopixel.h)(0x541C534F)
+I (..\sdk\Include\nrf_delay.h)(0x5314F28C)
+I (..\sdk\Include\nrf.h)(0x5314F28C)
+I (..\sdk\Include\nrf51_deprecated.h)(0x5314F28C)
+I (..\sdk\Include\nrf_gpio.h)(0x5314F28C)
+F (..\src\bootloader_util_arm.c)(0x5314F28C)(-c --cpu Cortex-M0 -D__EVAL --li -g -O3 --apcs=interwork --enum_is_int -I.. -I..\sdk\Include -I..\sdk\Include\sd_common -I..\sdk\Include\app_common -I..\sdk\Include\ble -I..\sdk\Include\ble\ble_services -I..\sdk\Include\s110 -I..\src\include\ble_transport -I..\src\include\hci_transport -I..\src\include -I..\libraries\lava_bootloader -I..\libraries\lava_capsense -I..\libraries\lava_neopixel --c99-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include-I C:\Keil\ARM\Device\Nordic\nRF51822\Include-DNRF51 -DNRF51 -DDEBUG_NRF_USER -DBOARD_NRF6310 -DBOOTLOADER_BANKED -DBLE_STACK_SUPPORT_REQD -o .\_build\bootloader_util_arm.o --omf_browse .\_build\bootloader_util_arm.crf --depend .\_build\bootloader_util_arm.d)
+I (..\src\include\bootloader_util.h)(0x5314F28C)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x52852AFA)
+I (..\src\include\bootloader_types.h)(0x5314F28C)
+I (..\src\include\dfu_types.h)(0x5314F28C)
+I (..\sdk\Include\nrf51.h)(0x5314F28C)
+I (C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include\core_cm0.h)(0x512CE342)
+I (C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include\core_cmInstr.h)(0x51BB1A44)
+I (C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include\core_cmFunc.h)(0x512CE342)
+I (..\sdk\Include\system_nrf51.h)(0x5314F28C)
+I (..\sdk\Include\app_common\app_util.h)(0x5314F28C)
+I (..\sdk\Include\compiler_abstraction.h)(0x5314F28C)
+I (..\sdk\Include\app_common\app_error.h)(0x5314F28C)
+I (C:\Keil\ARM\ARMCC\include\stdbool.h)(0x52852AFA)
+I (..\sdk\Include\s110\nrf_error.h)(0x5314F28C)
+I (..\sdk\Include\nordic_common.h)(0x5314F28C)
+F (..\sdk\Source\ble\ble_services\ble_dfu.c)(0x540A1BD3)(-c --cpu Cortex-M0 -D__EVAL --li -g -O3 --apcs=interwork --enum_is_int -I.. -I..\sdk\Include -I..\sdk\Include\sd_common -I..\sdk\Include\app_common -I..\sdk\Include\ble -I..\sdk\Include\ble\ble_services -I..\sdk\Include\s110 -I..\src\include\ble_transport -I..\src\include\hci_transport -I..\src\include -I..\libraries\lava_bootloader -I..\libraries\lava_capsense -I..\libraries\lava_neopixel --c99-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include-I C:\Keil\ARM\Device\Nordic\nRF51822\Include-DNRF51 -DNRF51 -DDEBUG_NRF_USER -DBOARD_NRF6310 -DBOOTLOADER_BANKED -DBLE_STACK_SUPPORT_REQD -o .\_build\ble_dfu.o --omf_browse .\_build\ble_dfu.crf --depend .\_build\ble_dfu.d)
+I (..\sdk\Include\ble\ble_services\ble_dfu.h)(0x540A1BD0)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x52852AFA)
+I (..\sdk\Include\s110\ble_gatts.h)(0x5314F28C)
+I (..\sdk\Include\s110\ble_types.h)(0x5314F28C)
+I (..\sdk\Include\s110\ble_ranges.h)(0x5314F28C)
+I (..\sdk\Include\s110\ble_l2cap.h)(0x5314F28C)
+I (..\sdk\Include\s110\ble_err.h)(0x5314F28C)
+I (..\sdk\Include\s110\nrf_error.h)(0x5314F28C)
+I (..\sdk\Include\s110\nrf_svc.h)(0x5314F28C)
+I (..\sdk\Include\s110\ble_gap.h)(0x5314F28C)
+I (..\sdk\Include\s110\ble_gatt.h)(0x5314F28C)
+I (..\sdk\Include\s110\ble.h)(0x5314F28C)
+I (..\sdk\Include\s110\ble_gattc.h)(0x5314F28C)
+I (..\sdk\Include\ble\ble_services\ble_srv_common.h)(0x5314F28C)
+I (C:\Keil\ARM\ARMCC\include\stdbool.h)(0x52852AFA)
+I (..\sdk\Include\app_common\app_util.h)(0x5314F28C)
+I (..\sdk\Include\compiler_abstraction.h)(0x5314F28C)
+I (..\sdk\Include\nrf51.h)(0x5314F28C)
+I (C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include\core_cm0.h)(0x512CE342)
+I (C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include\core_cmInstr.h)(0x51BB1A44)
+I (C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include\core_cmFunc.h)(0x512CE342)
+I (..\sdk\Include\system_nrf51.h)(0x5314F28C)
+I (..\sdk\Include\app_common\app_error.h)(0x5314F28C)
+I (..\sdk\Include\nordic_common.h)(0x5314F28C)
+I (C:\Keil\ARM\ARMCC\include\string.h)(0x52852AFA)
+I (C:\Keil\ARM\ARMCC\include\stddef.h)(0x52852AFA)
+I (..\sdk\Include\s110\nrf_soc.h)(0x53FB46EB)
+I (..\sdk\Include\nrf51_bitfields.h)(0x5314F28C)
+I (..\sdk\Include\s110\nrf_error_soc.h)(0x5314F28C)
+F (..\sdk\Source\app_common\app_timer.c)(0x5314F28C)(-c --cpu Cortex-M0 -D__EVAL --li -g -O3 --apcs=interwork --enum_is_int -I.. -I..\sdk\Include -I..\sdk\Include\sd_common -I..\sdk\Include\app_common -I..\sdk\Include\ble -I..\sdk\Include\ble\ble_services -I..\sdk\Include\s110 -I..\src\include\ble_transport -I..\src\include\hci_transport -I..\src\include -I..\libraries\lava_bootloader -I..\libraries\lava_capsense -I..\libraries\lava_neopixel --c99-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include-I C:\Keil\ARM\Device\Nordic\nRF51822\Include-DNRF51 -DNRF51 -DDEBUG_NRF_USER -DBOARD_NRF6310 -DBOOTLOADER_BANKED -DBLE_STACK_SUPPORT_REQD -o .\_build\app_timer.o --omf_browse .\_build\app_timer.crf --depend .\_build\app_timer.d)
+I (..\sdk\Include\app_common\app_timer.h)(0x5314F28C)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x52852AFA)
+I (C:\Keil\ARM\ARMCC\include\stdbool.h)(0x52852AFA)
+I (C:\Keil\ARM\ARMCC\include\stdio.h)(0x52852AF4)
+I (..\sdk\Include\app_common\app_error.h)(0x5314F28C)
+I (..\sdk\Include\s110\nrf_error.h)(0x5314F28C)
+I (..\sdk\Include\app_common\app_util.h)(0x5314F28C)
+I (..\sdk\Include\compiler_abstraction.h)(0x5314F28C)
+I (..\sdk\Include\nrf51.h)(0x5314F28C)
+I (C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include\core_cm0.h)(0x512CE342)
+I (C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include\core_cmInstr.h)(0x51BB1A44)
+I (C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include\core_cmFunc.h)(0x512CE342)
+I (..\sdk\Include\system_nrf51.h)(0x5314F28C)
+I (..\sdk\Include\app_common\app_scheduler.h)(0x5314F28C)
+I (C:\Keil\ARM\ARMCC\include\stdlib.h)(0x52852AFA)
+I (..\sdk\Include\nrf51_bitfields.h)(0x5314F28C)
+I (..\sdk\Include\s110\nrf_soc.h)(0x53FB46EB)
+I (..\sdk\Include\s110\nrf_svc.h)(0x5314F28C)
+I (..\sdk\Include\s110\nrf_error_soc.h)(0x5314F28C)
+I (..\sdk\Include\nrf_delay.h)(0x5314F28C)
+I (..\sdk\Include\nrf.h)(0x5314F28C)
+I (..\sdk\Include\nrf51_deprecated.h)(0x5314F28C)
+F (..\sdk\Source\app_common\app_scheduler.c)(0x5314F28C)(-c --cpu Cortex-M0 -D__EVAL --li -g -O3 --apcs=interwork --enum_is_int -I.. -I..\sdk\Include -I..\sdk\Include\sd_common -I..\sdk\Include\app_common -I..\sdk\Include\ble -I..\sdk\Include\ble\ble_services -I..\sdk\Include\s110 -I..\src\include\ble_transport -I..\src\include\hci_transport -I..\src\include -I..\libraries\lava_bootloader -I..\libraries\lava_capsense -I..\libraries\lava_neopixel --c99-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include-I C:\Keil\ARM\Device\Nordic\nRF51822\Include-DNRF51 -DNRF51 -DDEBUG_NRF_USER -DBOARD_NRF6310 -DBOOTLOADER_BANKED -DBLE_STACK_SUPPORT_REQD -o .\_build\app_scheduler.o --omf_browse .\_build\app_scheduler.crf --depend .\_build\app_scheduler.d)
+I (..\sdk\Include\app_common\app_scheduler.h)(0x5314F28C)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x52852AFA)
+I (..\sdk\Include\app_common\app_error.h)(0x5314F28C)
+I (C:\Keil\ARM\ARMCC\include\stdbool.h)(0x52852AFA)
+I (..\sdk\Include\s110\nrf_error.h)(0x5314F28C)
+I (C:\Keil\ARM\ARMCC\include\stdlib.h)(0x52852AFA)
+I (C:\Keil\ARM\ARMCC\include\string.h)(0x52852AFA)
+I (..\sdk\Include\s110\nrf_soc.h)(0x53FB46EB)
+I (..\sdk\Include\s110\nrf_svc.h)(0x5314F28C)
+I (..\sdk\Include\nrf51.h)(0x5314F28C)
+I (C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include\core_cm0.h)(0x512CE342)
+I (C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include\core_cmInstr.h)(0x51BB1A44)
+I (C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include\core_cmFunc.h)(0x512CE342)
+I (..\sdk\Include\system_nrf51.h)(0x5314F28C)
+I (..\sdk\Include\nrf51_bitfields.h)(0x5314F28C)
+I (..\sdk\Include\s110\nrf_error_soc.h)(0x5314F28C)
+I (..\sdk\Include\nrf_assert.h)(0x5314F28C)
+I (..\sdk\Include\app_common\app_util.h)(0x5314F28C)
+I (..\sdk\Include\compiler_abstraction.h)(0x5314F28C)
+F (..\sdk\Source\app_common\app_gpiote.c)(0x5314F28C)(-c --cpu Cortex-M0 -D__EVAL --li -g -O3 --apcs=interwork --enum_is_int -I.. -I..\sdk\Include -I..\sdk\Include\sd_common -I..\sdk\Include\app_common -I..\sdk\Include\ble -I..\sdk\Include\ble\ble_services -I..\sdk\Include\s110 -I..\src\include\ble_transport -I..\src\include\hci_transport -I..\src\include -I..\libraries\lava_bootloader -I..\libraries\lava_capsense -I..\libraries\lava_neopixel --c99-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include-I C:\Keil\ARM\Device\Nordic\nRF51822\Include-DNRF51 -DNRF51 -DDEBUG_NRF_USER -DBOARD_NRF6310 -DBOOTLOADER_BANKED -DBLE_STACK_SUPPORT_REQD -o .\_build\app_gpiote.o --omf_browse .\_build\app_gpiote.crf --depend .\_build\app_gpiote.d)
+I (..\sdk\Include\app_common\app_gpiote.h)(0x5314F28C)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x52852AFA)
+I (C:\Keil\ARM\ARMCC\include\stdbool.h)(0x52852AFA)
+I (..\sdk\Include\nrf.h)(0x5314F28C)
+I (..\sdk\Include\nrf51.h)(0x5314F28C)
+I (C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include\core_cm0.h)(0x512CE342)
+I (C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include\core_cmInstr.h)(0x51BB1A44)
+I (C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include\core_cmFunc.h)(0x512CE342)
+I (..\sdk\Include\system_nrf51.h)(0x5314F28C)
+I (..\sdk\Include\nrf51_bitfields.h)(0x5314F28C)
+I (..\sdk\Include\nrf51_deprecated.h)(0x5314F28C)
+I (..\sdk\Include\compiler_abstraction.h)(0x5314F28C)
+I (..\sdk\Include\app_common\app_error.h)(0x5314F28C)
+I (..\sdk\Include\s110\nrf_error.h)(0x5314F28C)
+I (..\sdk\Include\app_common\app_util.h)(0x5314F28C)
+I (C:\Keil\ARM\ARMCC\include\stdlib.h)(0x52852AFA)
+I (C:\Keil\ARM\ARMCC\include\string.h)(0x52852AFA)
+I (..\sdk\Include\nrf_gpio.h)(0x5314F28C)
+F (..\sdk\Source\app_common\app_button.c)(0x5314F28C)(-c --cpu Cortex-M0 -D__EVAL --li -g -O3 --apcs=interwork --enum_is_int -I.. -I..\sdk\Include -I..\sdk\Include\sd_common -I..\sdk\Include\app_common -I..\sdk\Include\ble -I..\sdk\Include\ble\ble_services -I..\sdk\Include\s110 -I..\src\include\ble_transport -I..\src\include\hci_transport -I..\src\include -I..\libraries\lava_bootloader -I..\libraries\lava_capsense -I..\libraries\lava_neopixel --c99-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include-I C:\Keil\ARM\Device\Nordic\nRF51822\Include-DNRF51 -DNRF51 -DDEBUG_NRF_USER -DBOARD_NRF6310 -DBOOTLOADER_BANKED -DBLE_STACK_SUPPORT_REQD -o .\_build\app_button.o --omf_browse .\_build\app_button.crf --depend .\_build\app_button.d)
+I (..\sdk\Include\app_common\app_button.h)(0x5314F28C)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x52852AFA)
+I (C:\Keil\ARM\ARMCC\include\stdbool.h)(0x52852AFA)
+I (..\sdk\Include\nrf.h)(0x5314F28C)
+I (..\sdk\Include\nrf51.h)(0x5314F28C)
+I (C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include\core_cm0.h)(0x512CE342)
+I (C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include\core_cmInstr.h)(0x51BB1A44)
+I (C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include\core_cmFunc.h)(0x512CE342)
+I (..\sdk\Include\system_nrf51.h)(0x5314F28C)
+I (..\sdk\Include\nrf51_bitfields.h)(0x5314F28C)
+I (..\sdk\Include\nrf51_deprecated.h)(0x5314F28C)
+I (..\sdk\Include\compiler_abstraction.h)(0x5314F28C)
+I (..\sdk\Include\app_common\app_error.h)(0x5314F28C)
+I (..\sdk\Include\s110\nrf_error.h)(0x5314F28C)
+I (..\sdk\Include\app_common\app_scheduler.h)(0x5314F28C)
+I (..\sdk\Include\nrf_gpio.h)(0x5314F28C)
+I (C:\Keil\ARM\ARMCC\include\string.h)(0x52852AFA)
+I (..\sdk\Include\nordic_common.h)(0x5314F28C)
+I (..\sdk\Include\app_common\app_util.h)(0x5314F28C)
+I (..\sdk\Include\app_common\app_gpiote.h)(0x5314F28C)
+I (..\sdk\Include\app_common\app_timer.h)(0x5314F28C)
+I (C:\Keil\ARM\ARMCC\include\stdio.h)(0x52852AF4)
+F (..\sdk\Source\app_common\crc16.c)(0x5314F28C)(-c --cpu Cortex-M0 -D__EVAL --li -g -O3 --apcs=interwork --enum_is_int -I.. -I..\sdk\Include -I..\sdk\Include\sd_common -I..\sdk\Include\app_common -I..\sdk\Include\ble -I..\sdk\Include\ble\ble_services -I..\sdk\Include\s110 -I..\src\include\ble_transport -I..\src\include\hci_transport -I..\src\include -I..\libraries\lava_bootloader -I..\libraries\lava_capsense -I..\libraries\lava_neopixel --c99-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include-I C:\Keil\ARM\Device\Nordic\nRF51822\Include-DNRF51 -DNRF51 -DDEBUG_NRF_USER -DBOARD_NRF6310 -DBOOTLOADER_BANKED -DBLE_STACK_SUPPORT_REQD -o .\_build\crc16.o --omf_browse .\_build\crc16.crf --depend .\_build\crc16.d)
+I (..\sdk\Include\app_common\crc16.h)(0x5314F28C)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x52852AFA)
+I (C:\Keil\ARM\ARMCC\include\stdio.h)(0x52852AF4)
+F (..\sdk\Source\sd_common\softdevice_handler.c)(0x5314F28C)(-c --cpu Cortex-M0 -D__EVAL --li -g -O3 --apcs=interwork --enum_is_int -I.. -I..\sdk\Include -I..\sdk\Include\sd_common -I..\sdk\Include\app_common -I..\sdk\Include\ble -I..\sdk\Include\ble\ble_services -I..\sdk\Include\s110 -I..\src\include\ble_transport -I..\src\include\hci_transport -I..\src\include -I..\libraries\lava_bootloader -I..\libraries\lava_capsense -I..\libraries\lava_neopixel --c99-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include-I C:\Keil\ARM\Device\Nordic\nRF51822\Include-DNRF51 -DNRF51 -DDEBUG_NRF_USER -DBOARD_NRF6310 -DBOOTLOADER_BANKED -DBLE_STACK_SUPPORT_REQD -o .\_build\softdevice_handler.o --omf_browse .\_build\softdevice_handler.crf --depend .\_build\softdevice_handler.d)
+I (..\sdk\Include\sd_common\softdevice_handler.h)(0x5314F28C)
+I (C:\Keil\ARM\ARMCC\include\stdlib.h)(0x52852AFA)
+I (..\sdk\Include\s110\nrf_sdm.h)(0x5314F28C)
+I (..\sdk\Include\s110\nrf_svc.h)(0x5314F28C)
+I (..\sdk\Include\nrf51.h)(0x5314F28C)
+I (C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include\core_cm0.h)(0x512CE342)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x52852AFA)
+I (C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include\core_cmInstr.h)(0x51BB1A44)
+I (C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include\core_cmFunc.h)(0x512CE342)
+I (..\sdk\Include\system_nrf51.h)(0x5314F28C)
+I (..\sdk\Include\s110\nrf_soc.h)(0x53FB46EB)
+I (C:\Keil\ARM\ARMCC\include\stdbool.h)(0x52852AFA)
+I (..\sdk\Include\nrf51_bitfields.h)(0x5314F28C)
+I (..\sdk\Include\s110\nrf_error_soc.h)(0x5314F28C)
+I (..\sdk\Include\s110\nrf_error.h)(0x5314F28C)
+I (..\sdk\Include\s110\nrf_error_sdm.h)(0x5314F28C)
+I (..\sdk\Include\app_common\app_error.h)(0x5314F28C)
+I (..\sdk\Include\app_common\app_scheduler.h)(0x5314F28C)
+I (..\sdk\Include\app_common\app_util.h)(0x5314F28C)
+I (..\sdk\Include\compiler_abstraction.h)(0x5314F28C)
+I (..\sdk\Include\sd_common\ble_stack_handler_types.h)(0x5314F28C)
+I (..\sdk\Include\s110\ble.h)(0x5314F28C)
+I (..\sdk\Include\s110\ble_ranges.h)(0x5314F28C)
+I (..\sdk\Include\s110\ble_types.h)(0x5314F28C)
+I (..\sdk\Include\s110\ble_gap.h)(0x5314F28C)
+I (..\sdk\Include\s110\ble_l2cap.h)(0x5314F28C)
+I (..\sdk\Include\s110\ble_err.h)(0x5314F28C)
+I (..\sdk\Include\s110\ble_gatt.h)(0x5314F28C)
+I (..\sdk\Include\s110\ble_gattc.h)(0x5314F28C)
+I (..\sdk\Include\s110\ble_gatts.h)(0x5314F28C)
+I (..\sdk\Include\sd_common\ant_stack_handler_types.h)(0x5314F28C)
+I (..\sdk\Include\nordic_common.h)(0x5314F28C)
+I (..\sdk\Include\nrf_assert.h)(0x5314F28C)
+F (..\sdk\Source\app_common\pstorage.c)(0x53C050E3)(-c --cpu Cortex-M0 -D__EVAL --li -g -O3 --apcs=interwork --enum_is_int -I.. -I..\sdk\Include -I..\sdk\Include\sd_common -I..\sdk\Include\app_common -I..\sdk\Include\ble -I..\sdk\Include\ble\ble_services -I..\sdk\Include\s110 -I..\src\include\ble_transport -I..\src\include\hci_transport -I..\src\include -I..\libraries\lava_bootloader -I..\libraries\lava_capsense -I..\libraries\lava_neopixel --c99-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include-I C:\Keil\ARM\Device\Nordic\nRF51822\Include-DNRF51 -DNRF51 -DDEBUG_NRF_USER -DBOARD_NRF6310 -DBOOTLOADER_BANKED -DBLE_STACK_SUPPORT_REQD -o .\_build\pstorage.o --omf_browse .\_build\pstorage.crf --depend .\_build\pstorage.d)
+I (C:\Keil\ARM\ARMCC\include\stdlib.h)(0x52852AFA)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x52852AFA)
+I (C:\Keil\ARM\ARMCC\include\string.h)(0x52852AFA)
+I (..\sdk\Include\nordic_common.h)(0x5314F28C)
+I (..\sdk\Include\s110\nrf_error.h)(0x5314F28C)
+I (..\sdk\Include\nrf_assert.h)(0x5314F28C)
+I (..\sdk\Include\nrf.h)(0x5314F28C)
+I (..\sdk\Include\nrf51.h)(0x5314F28C)
+I (C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include\core_cm0.h)(0x512CE342)
+I (C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include\core_cmInstr.h)(0x51BB1A44)
+I (C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include\core_cmFunc.h)(0x512CE342)
+I (..\sdk\Include\system_nrf51.h)(0x5314F28C)
+I (..\sdk\Include\nrf51_bitfields.h)(0x5314F28C)
+I (..\sdk\Include\nrf51_deprecated.h)(0x5314F28C)
+I (..\sdk\Include\compiler_abstraction.h)(0x5314F28C)
+I (..\sdk\Include\s110\nrf_soc.h)(0x53FB46EB)
+I (C:\Keil\ARM\ARMCC\include\stdbool.h)(0x52852AFA)
+I (..\sdk\Include\s110\nrf_svc.h)(0x5314F28C)
+I (..\sdk\Include\s110\nrf_error_soc.h)(0x5314F28C)
+I (..\sdk\Include\app_common\app_util.h)(0x5314F28C)
+I (..\sdk\Include\app_common\app_error.h)(0x5314F28C)
+I (..\sdk\Include\app_common\pstorage.h)(0x53C050E3)
+I (..\src\include\pstorage_platform.h)(0x54236B41)
+I (..\src\include\lumen.h)(0x5314F28C)
+I (..\src\include\sun_board.h)(0x53C050E3)
+I (..\libraries\lava_neopixel\neopixel.h)(0x541C534F)
+I (..\sdk\Include\nrf_delay.h)(0x5314F28C)
+I (..\sdk\Include\nrf_gpio.h)(0x5314F28C)
+I (..\src\include\dfu_transport.h)(0x5314F28C)
+I (..\sdk\Include\s110\ble.h)(0x5314F28C)
+I (..\sdk\Include\s110\ble_ranges.h)(0x5314F28C)
+I (..\sdk\Include\s110\ble_types.h)(0x5314F28C)
+I (..\sdk\Include\s110\ble_gap.h)(0x5314F28C)
+I (..\sdk\Include\s110\ble_l2cap.h)(0x5314F28C)
+I (..\sdk\Include\s110\ble_err.h)(0x5314F28C)
+I (..\sdk\Include\s110\ble_gatt.h)(0x5314F28C)
+I (..\sdk\Include\s110\ble_gattc.h)(0x5314F28C)
+I (..\sdk\Include\s110\ble_gatts.h)(0x5314F28C)
+F (..\sdk\Source\ble\ble_radio_notification.c)(0x5314F28C)(-c --cpu Cortex-M0 -D__EVAL --li -g -O3 --apcs=interwork --enum_is_int -I.. -I..\sdk\Include -I..\sdk\Include\sd_common -I..\sdk\Include\app_common -I..\sdk\Include\ble -I..\sdk\Include\ble\ble_services -I..\sdk\Include\s110 -I..\src\include\ble_transport -I..\src\include\hci_transport -I..\src\include -I..\libraries\lava_bootloader -I..\libraries\lava_capsense -I..\libraries\lava_neopixel --c99-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include-I C:\Keil\ARM\Device\Nordic\nRF51822\Include-DNRF51 -DNRF51 -DDEBUG_NRF_USER -DBOARD_NRF6310 -DBOOTLOADER_BANKED -DBLE_STACK_SUPPORT_REQD -o .\_build\ble_radio_notification.o --omf_browse .\_build\ble_radio_notification.crf --depend .\_build\ble_radio_notification.d)
+I (..\sdk\Include\ble\ble_radio_notification.h)(0x5314F28C)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x52852AFA)
+I (C:\Keil\ARM\ARMCC\include\stdbool.h)(0x52852AFA)
+I (..\sdk\Include\s110\nrf_soc.h)(0x53FB46EB)
+I (..\sdk\Include\s110\nrf_svc.h)(0x5314F28C)
+I (..\sdk\Include\nrf51.h)(0x5314F28C)
+I (C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include\core_cm0.h)(0x512CE342)
+I (C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include\core_cmInstr.h)(0x51BB1A44)
+I (C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include\core_cmFunc.h)(0x512CE342)
+I (..\sdk\Include\system_nrf51.h)(0x5314F28C)
+I (..\sdk\Include\nrf51_bitfields.h)(0x5314F28C)
+I (..\sdk\Include\s110\nrf_error_soc.h)(0x5314F28C)
+I (..\sdk\Include\s110\nrf_error.h)(0x5314F28C)
+I (C:\Keil\ARM\ARMCC\include\stdlib.h)(0x52852AFA)
+F (..\src\dfu_transport_serial.c)(0x5314F28C)()
+F (..\sdk\Source\app_common\hci_transport.c)(0x5314F28C)()
+F (..\sdk\Source\app_common\hci_slip.c)(0x5314F28C)()
+F (..\sdk\Source\app_common\hci_mem_pool.c)(0x5314F28C)(-c --cpu Cortex-M0 -D__EVAL --li -g -O3 --apcs=interwork --enum_is_int -I.. -I..\sdk\Include -I..\sdk\Include\sd_common -I..\sdk\Include\app_common -I..\sdk\Include\ble -I..\sdk\Include\ble\ble_services -I..\sdk\Include\s110 -I..\src\include\ble_transport -I..\src\include\hci_transport -I..\src\include -I..\libraries\lava_bootloader -I..\libraries\lava_capsense -I..\libraries\lava_neopixel --c99-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include-I C:\Keil\ARM\Device\Nordic\nRF51822\Include-DNRF51 -DNRF51 -DDEBUG_NRF_USER -DBOARD_NRF6310 -DBOOTLOADER_BANKED -DBLE_STACK_SUPPORT_REQD -o .\_build\hci_mem_pool.o --omf_browse .\_build\hci_mem_pool.crf --depend .\_build\hci_mem_pool.d)
+I (..\sdk\Include\app_common\hci_mem_pool.h)(0x5314F28C)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x52852AFA)
+I (..\sdk\Include\s110\nrf_error.h)(0x5314F28C)
+I (..\sdk\Include\app_common\hci_mem_pool_internal.h)(0x5314F28C)
+I (C:\Keil\ARM\ARMCC\include\stdbool.h)(0x52852AFA)
+I (C:\Keil\ARM\ARMCC\include\stdio.h)(0x52852AF4)
+F (..\sdk\Source\app_common\app_uart.c)(0x5314F28C)()
+F (..\src\dfu_transport_ble.c)(0x541C3FDE)(-c --cpu Cortex-M0 -D__EVAL --li -g -O3 --apcs=interwork --enum_is_int -I.. -I..\sdk\Include -I..\sdk\Include\sd_common -I..\sdk\Include\app_common -I..\sdk\Include\ble -I..\sdk\Include\ble\ble_services -I..\sdk\Include\s110 -I..\src\include\ble_transport -I..\src\include\hci_transport -I..\src\include -I..\libraries\lava_bootloader -I..\libraries\lava_capsense -I..\libraries\lava_neopixel --c99-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include-I C:\Keil\ARM\Device\Nordic\nRF51822\Include-DNRF51 -DNRF51 -DDEBUG_NRF_USER -DBOARD_NRF6310 -DBOOTLOADER_BANKED -DBLE_STACK_SUPPORT_REQD -o .\_build\dfu_transport_ble.o --omf_browse .\_build\dfu_transport_ble.crf --depend .\_build\dfu_transport_ble.d)
+I (..\src\include\dfu_transport.h)(0x5314F28C)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x52852AFA)
+I (..\sdk\Include\s110\ble.h)(0x5314F28C)
+I (..\sdk\Include\s110\ble_ranges.h)(0x5314F28C)
+I (..\sdk\Include\s110\ble_types.h)(0x5314F28C)
+I (..\sdk\Include\s110\ble_gap.h)(0x5314F28C)
+I (..\sdk\Include\s110\nrf_svc.h)(0x5314F28C)
+I (..\sdk\Include\s110\ble_l2cap.h)(0x5314F28C)
+I (..\sdk\Include\s110\ble_err.h)(0x5314F28C)
+I (..\sdk\Include\s110\nrf_error.h)(0x5314F28C)
+I (..\sdk\Include\s110\ble_gatt.h)(0x5314F28C)
+I (..\sdk\Include\s110\ble_gattc.h)(0x5314F28C)
+I (..\sdk\Include\s110\ble_gatts.h)(0x5314F28C)
+I (..\src\include\dfu.h)(0x540A1DAB)
+I (..\src\include\dfu_types.h)(0x5314F28C)
+I (..\sdk\Include\nrf51.h)(0x5314F28C)
+I (C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include\core_cm0.h)(0x512CE342)
+I (C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include\core_cmInstr.h)(0x51BB1A44)
+I (C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include\core_cmFunc.h)(0x512CE342)
+I (..\sdk\Include\system_nrf51.h)(0x5314F28C)
+I (..\sdk\Include\app_common\app_util.h)(0x5314F28C)
+I (..\sdk\Include\compiler_abstraction.h)(0x5314F28C)
+I (..\sdk\Include\app_common\app_error.h)(0x5314F28C)
+I (C:\Keil\ARM\ARMCC\include\stdbool.h)(0x52852AFA)
+I (..\sdk\Include\s110\nrf_sdm.h)(0x5314F28C)
+I (..\sdk\Include\s110\nrf_soc.h)(0x53FB46EB)
+I (..\sdk\Include\nrf51_bitfields.h)(0x5314F28C)
+I (..\sdk\Include\s110\nrf_error_soc.h)(0x5314F28C)
+I (..\sdk\Include\s110\nrf_error_sdm.h)(0x5314F28C)
+I (..\sdk\Include\nrf_gpio.h)(0x5314F28C)
+I (..\sdk\Include\sd_common\softdevice_handler.h)(0x5314F28C)
+I (C:\Keil\ARM\ARMCC\include\stdlib.h)(0x52852AFA)
+I (..\sdk\Include\app_common\app_scheduler.h)(0x5314F28C)
+I (..\sdk\Include\sd_common\ble_stack_handler_types.h)(0x5314F28C)
+I (..\sdk\Include\sd_common\ant_stack_handler_types.h)(0x5314F28C)
+I (..\sdk\Include\ble\ble_advdata.h)(0x5314F28C)
+I (C:\Keil\ARM\ARMCC\include\string.h)(0x52852AFA)
+I (..\libraries\lava_bootloader\lava_bootloader.h)(0x5314F28C)
+I (..\sdk\Include\nordic_common.h)(0x5314F28C)
+I (..\sdk\Include\nrf.h)(0x5314F28C)
+I (..\sdk\Include\nrf51_deprecated.h)(0x5314F28C)
+I (..\sdk\Include\s110\ble_hci.h)(0x5314F28C)
+I (..\sdk\Include\boards.h)(0x5314F28C)
+I (..\sdk\Include\boards/nrf6310.h)(0x5314F28C)
+I (..\sdk\Include\ble\ble_services\ble_dfu.h)(0x540A1BD0)
+I (..\sdk\Include\ble\ble_services\ble_srv_common.h)(0x5314F28C)
+I (..\sdk\Include\app_common\pstorage.h)(0x53C050E3)
+I (..\src\include\pstorage_platform.h)(0x54236B41)
+I (..\sdk\Include\app_common\app_timer.h)(0x5314F28C)
+I (C:\Keil\ARM\ARMCC\include\stdio.h)(0x52852AF4)
+I (..\sdk\Include\ble\ble_flash.h)(0x5314F28C)
+I (..\sdk\Include\ble\ble_conn_params.h)(0x5314F28C)
+I (..\sdk\Include\app_common\hci_mem_pool.h)(0x5314F28C)
+I (C:\Keil\ARM\ARMCC\include\stddef.h)(0x52852AFA)
+I (..\src\include\lumen.h)(0x5314F28C)
+I (..\src\include\sun_board.h)(0x53C050E3)
+I (..\libraries\lava_neopixel\neopixel.h)(0x541C534F)
+I (..\sdk\Include\nrf_delay.h)(0x5314F28C)
+F (..\sdk\Source\ble\ble_conn_params.c)(0x5314F28C)(-c --cpu Cortex-M0 -D__EVAL --li -g -O3 --apcs=interwork --enum_is_int -I.. -I..\sdk\Include -I..\sdk\Include\sd_common -I..\sdk\Include\app_common -I..\sdk\Include\ble -I..\sdk\Include\ble\ble_services -I..\sdk\Include\s110 -I..\src\include\ble_transport -I..\src\include\hci_transport -I..\src\include -I..\libraries\lava_bootloader -I..\libraries\lava_capsense -I..\libraries\lava_neopixel --c99-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include-I C:\Keil\ARM\Device\Nordic\nRF51822\Include-DNRF51 -DNRF51 -DDEBUG_NRF_USER -DBOARD_NRF6310 -DBOOTLOADER_BANKED -DBLE_STACK_SUPPORT_REQD -o .\_build\ble_conn_params.o --omf_browse .\_build\ble_conn_params.crf --depend .\_build\ble_conn_params.d)
+I (..\sdk\Include\ble\ble_conn_params.h)(0x5314F28C)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x52852AFA)
+I (..\sdk\Include\s110\ble.h)(0x5314F28C)
+I (..\sdk\Include\s110\ble_ranges.h)(0x5314F28C)
+I (..\sdk\Include\s110\ble_types.h)(0x5314F28C)
+I (..\sdk\Include\s110\ble_gap.h)(0x5314F28C)
+I (..\sdk\Include\s110\nrf_svc.h)(0x5314F28C)
+I (..\sdk\Include\s110\ble_l2cap.h)(0x5314F28C)
+I (..\sdk\Include\s110\ble_err.h)(0x5314F28C)
+I (..\sdk\Include\s110\nrf_error.h)(0x5314F28C)
+I (..\sdk\Include\s110\ble_gatt.h)(0x5314F28C)
+I (..\sdk\Include\s110\ble_gattc.h)(0x5314F28C)
+I (..\sdk\Include\s110\ble_gatts.h)(0x5314F28C)
+I (..\sdk\Include\ble\ble_services\ble_srv_common.h)(0x5314F28C)
+I (C:\Keil\ARM\ARMCC\include\stdbool.h)(0x52852AFA)
+I (..\sdk\Include\app_common\app_util.h)(0x5314F28C)
+I (..\sdk\Include\compiler_abstraction.h)(0x5314F28C)
+I (..\sdk\Include\nrf51.h)(0x5314F28C)
+I (C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include\core_cm0.h)(0x512CE342)
+I (C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include\core_cmInstr.h)(0x51BB1A44)
+I (C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include\core_cmFunc.h)(0x512CE342)
+I (..\sdk\Include\system_nrf51.h)(0x5314F28C)
+I (..\sdk\Include\app_common\app_error.h)(0x5314F28C)
+I (C:\Keil\ARM\ARMCC\include\stdlib.h)(0x52852AFA)
+I (..\sdk\Include\nordic_common.h)(0x5314F28C)
+I (..\sdk\Include\s110\ble_hci.h)(0x5314F28C)
+I (..\sdk\Include\app_common\app_timer.h)(0x5314F28C)
+I (C:\Keil\ARM\ARMCC\include\stdio.h)(0x52852AF4)
+I (..\sdk\Include\app_common\app_scheduler.h)(0x5314F28C)
+F (..\sdk\Source\ble\ble_advdata.c)(0x5314F28C)(-c --cpu Cortex-M0 -D__EVAL --li -g -O3 --apcs=interwork --enum_is_int -I.. -I..\sdk\Include -I..\sdk\Include\sd_common -I..\sdk\Include\app_common -I..\sdk\Include\ble -I..\sdk\Include\ble\ble_services -I..\sdk\Include\s110 -I..\src\include\ble_transport -I..\src\include\hci_transport -I..\src\include -I..\libraries\lava_bootloader -I..\libraries\lava_capsense -I..\libraries\lava_neopixel --c99-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include-I C:\Keil\ARM\Device\Nordic\nRF51822\Include-DNRF51 -DNRF51 -DDEBUG_NRF_USER -DBOARD_NRF6310 -DBOOTLOADER_BANKED -DBLE_STACK_SUPPORT_REQD -o .\_build\ble_advdata.o --omf_browse .\_build\ble_advdata.crf --depend .\_build\ble_advdata.d)
+I (..\sdk\Include\ble\ble_advdata.h)(0x5314F28C)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x52852AFA)
+I (C:\Keil\ARM\ARMCC\include\stdbool.h)(0x52852AFA)
+I (C:\Keil\ARM\ARMCC\include\string.h)(0x52852AFA)
+I (..\sdk\Include\s110\ble.h)(0x5314F28C)
+I (..\sdk\Include\s110\ble_ranges.h)(0x5314F28C)
+I (..\sdk\Include\s110\ble_types.h)(0x5314F28C)
+I (..\sdk\Include\s110\ble_gap.h)(0x5314F28C)
+I (..\sdk\Include\s110\nrf_svc.h)(0x5314F28C)
+I (..\sdk\Include\s110\ble_l2cap.h)(0x5314F28C)
+I (..\sdk\Include\s110\ble_err.h)(0x5314F28C)
+I (..\sdk\Include\s110\nrf_error.h)(0x5314F28C)
+I (..\sdk\Include\s110\ble_gatt.h)(0x5314F28C)
+I (..\sdk\Include\s110\ble_gattc.h)(0x5314F28C)
+I (..\sdk\Include\s110\ble_gatts.h)(0x5314F28C)
+I (..\sdk\Include\app_common\app_util.h)(0x5314F28C)
+I (..\sdk\Include\compiler_abstraction.h)(0x5314F28C)
+I (..\sdk\Include\nrf51.h)(0x5314F28C)
+I (C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include\core_cm0.h)(0x512CE342)
+I (C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include\core_cmInstr.h)(0x51BB1A44)
+I (C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include\core_cmFunc.h)(0x512CE342)
+I (..\sdk\Include\system_nrf51.h)(0x5314F28C)
+I (..\sdk\Include\app_common\app_error.h)(0x5314F28C)
+I (..\sdk\Include\nordic_common.h)(0x5314F28C)
+I (..\sdk\Include\ble\ble_services\ble_srv_common.h)(0x5314F28C)
+F (..\sdk\Source\ble\ble_services\ble_srv_common.c)(0x5314F28C)(-c --cpu Cortex-M0 -D__EVAL --li -g -O3 --apcs=interwork --enum_is_int -I.. -I..\sdk\Include -I..\sdk\Include\sd_common -I..\sdk\Include\app_common -I..\sdk\Include\ble -I..\sdk\Include\ble\ble_services -I..\sdk\Include\s110 -I..\src\include\ble_transport -I..\src\include\hci_transport -I..\src\include -I..\libraries\lava_bootloader -I..\libraries\lava_capsense -I..\libraries\lava_neopixel --c99-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include-I C:\Keil\ARM\Device\Nordic\nRF51822\Include-DNRF51 -DNRF51 -DDEBUG_NRF_USER -DBOARD_NRF6310 -DBOOTLOADER_BANKED -DBLE_STACK_SUPPORT_REQD -o .\_build\ble_srv_common.o --omf_browse .\_build\ble_srv_common.crf --depend .\_build\ble_srv_common.d)
+I (..\sdk\Include\ble\ble_services\ble_srv_common.h)(0x5314F28C)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x52852AFA)
+I (C:\Keil\ARM\ARMCC\include\stdbool.h)(0x52852AFA)
+I (..\sdk\Include\s110\ble_types.h)(0x5314F28C)
+I (..\sdk\Include\app_common\app_util.h)(0x5314F28C)
+I (..\sdk\Include\compiler_abstraction.h)(0x5314F28C)
+I (..\sdk\Include\nrf51.h)(0x5314F28C)
+I (C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include\core_cm0.h)(0x512CE342)
+I (C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include\core_cmInstr.h)(0x51BB1A44)
+I (C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include\core_cmFunc.h)(0x512CE342)
+I (..\sdk\Include\system_nrf51.h)(0x5314F28C)
+I (..\sdk\Include\app_common\app_error.h)(0x5314F28C)
+I (..\sdk\Include\s110\nrf_error.h)(0x5314F28C)
+I (..\sdk\Include\s110\ble_gap.h)(0x5314F28C)
+I (..\sdk\Include\s110\ble_ranges.h)(0x5314F28C)
+I (..\sdk\Include\s110\nrf_svc.h)(0x5314F28C)
+I (..\sdk\Include\s110\ble_gatt.h)(0x5314F28C)
+I (C:\Keil\ARM\ARMCC\include\string.h)(0x52852AFA)
+I (..\sdk\Include\nordic_common.h)(0x5314F28C)
+F (..\libraries\lava_bootloader\lava_bootloader.c)(0x5314F28C)(-c --cpu Cortex-M0 -D__EVAL --li -g -O3 --apcs=interwork --enum_is_int -I.. -I..\sdk\Include -I..\sdk\Include\sd_common -I..\sdk\Include\app_common -I..\sdk\Include\ble -I..\sdk\Include\ble\ble_services -I..\sdk\Include\s110 -I..\src\include\ble_transport -I..\src\include\hci_transport -I..\src\include -I..\libraries\lava_bootloader -I..\libraries\lava_capsense -I..\libraries\lava_neopixel --c99-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include-I C:\Keil\ARM\Device\Nordic\nRF51822\Include-DNRF51 -DNRF51 -DDEBUG_NRF_USER -DBOARD_NRF6310 -DBOOTLOADER_BANKED -DBLE_STACK_SUPPORT_REQD -o .\_build\lava_bootloader.o --omf_browse .\_build\lava_bootloader.crf --depend .\_build\lava_bootloader.d)
+I (..\libraries\lava_bootloader\lava_bootloader.h)(0x5314F28C)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x52852AFA)
+I (C:\Keil\ARM\ARMCC\include\string.h)(0x52852AFA)
+I (..\sdk\Include\nordic_common.h)(0x5314F28C)
+I (..\sdk\Include\nrf.h)(0x5314F28C)
+I (..\sdk\Include\nrf51.h)(0x5314F28C)
+I (C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include\core_cm0.h)(0x512CE342)
+I (C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include\core_cmInstr.h)(0x51BB1A44)
+I (C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include\core_cmFunc.h)(0x512CE342)
+I (..\sdk\Include\system_nrf51.h)(0x5314F28C)
+I (..\sdk\Include\nrf51_bitfields.h)(0x5314F28C)
+I (..\sdk\Include\nrf51_deprecated.h)(0x5314F28C)
+I (..\sdk\Include\compiler_abstraction.h)(0x5314F28C)
+I (..\sdk\Include\s110\nrf_soc.h)(0x53FB46EB)
+I (C:\Keil\ARM\ARMCC\include\stdbool.h)(0x52852AFA)
+I (..\sdk\Include\s110\nrf_svc.h)(0x5314F28C)
+I (..\sdk\Include\s110\nrf_error_soc.h)(0x5314F28C)
+I (..\sdk\Include\s110\nrf_error.h)(0x5314F28C)
+F (..\libraries\lava_neopixel\neopixel.c)(0x541C3F65)(-c --cpu Cortex-M0 -D__EVAL --li -g -O3 --apcs=interwork --enum_is_int -I.. -I..\sdk\Include -I..\sdk\Include\sd_common -I..\sdk\Include\app_common -I..\sdk\Include\ble -I..\sdk\Include\ble\ble_services -I..\sdk\Include\s110 -I..\src\include\ble_transport -I..\src\include\hci_transport -I..\src\include -I..\libraries\lava_bootloader -I..\libraries\lava_capsense -I..\libraries\lava_neopixel --c99-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include-I C:\Keil\ARM\Device\Nordic\nRF51822\Include-DNRF51 -DNRF51 -DDEBUG_NRF_USER -DBOARD_NRF6310 -DBOOTLOADER_BANKED -DBLE_STACK_SUPPORT_REQD -o .\_build\neopixel.o --omf_browse .\_build\neopixel.crf --depend .\_build\neopixel.d)
+I (C:\Keil\ARM\ARMCC\include\stdbool.h)(0x52852AFA)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x52852AFA)
+I (C:\Keil\ARM\ARMCC\include\stdlib.h)(0x52852AFA)
+I (..\sdk\Include\nrf_delay.h)(0x5314F28C)
+I (..\sdk\Include\nrf.h)(0x5314F28C)
+I (..\sdk\Include\nrf51.h)(0x5314F28C)
+I (C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include\core_cm0.h)(0x512CE342)
+I (C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include\core_cmInstr.h)(0x51BB1A44)
+I (C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include\core_cmFunc.h)(0x512CE342)
+I (..\sdk\Include\system_nrf51.h)(0x5314F28C)
+I (..\sdk\Include\nrf51_bitfields.h)(0x5314F28C)
+I (..\sdk\Include\nrf51_deprecated.h)(0x5314F28C)
+I (..\sdk\Include\compiler_abstraction.h)(0x5314F28C)
+I (..\sdk\Include\nrf_gpio.h)(0x5314F28C)
+I (..\libraries\lava_neopixel\neopixel.h)(0x541C534F)
+F (..\libraries\lava_capsense\mpr121.c)(0x5314F28C)(-c --cpu Cortex-M0 -D__EVAL --li -g -O3 --apcs=interwork --enum_is_int -I.. -I..\sdk\Include -I..\sdk\Include\sd_common -I..\sdk\Include\app_common -I..\sdk\Include\ble -I..\sdk\Include\ble\ble_services -I..\sdk\Include\s110 -I..\src\include\ble_transport -I..\src\include\hci_transport -I..\src\include -I..\libraries\lava_bootloader -I..\libraries\lava_capsense -I..\libraries\lava_neopixel --c99-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include-I C:\Keil\ARM\Device\Nordic\nRF51822\Include-DNRF51 -DNRF51 -DDEBUG_NRF_USER -DBOARD_NRF6310 -DBOOTLOADER_BANKED -DBLE_STACK_SUPPORT_REQD -o .\_build\mpr121.o --omf_browse .\_build\mpr121.crf --depend .\_build\mpr121.d)
+I (..\libraries\lava_capsense\mpr121.h)(0x5314F28C)
+I (..\sdk\Include\nrf_gpio.h)(0x5314F28C)
+I (..\sdk\Include\nrf51.h)(0x5314F28C)
+I (C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include\core_cm0.h)(0x512CE342)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x52852AFA)
+I (C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include\core_cmInstr.h)(0x51BB1A44)
+I (C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include\core_cmFunc.h)(0x512CE342)
+I (..\sdk\Include\system_nrf51.h)(0x5314F28C)
+I (..\sdk\Include\nrf51_bitfields.h)(0x5314F28C)
+I (C:\Keil\ARM\ARMCC\include\stdbool.h)(0x52852AFA)
+I (..\sdk\Include\twi_master.h)(0x5314F28C)
+F (..\libraries\lava_capsense\sd_twi_hw_master.c)(0x5314F28C)(-c --cpu Cortex-M0 -D__EVAL --li -g -O3 --apcs=interwork --enum_is_int -I.. -I..\sdk\Include -I..\sdk\Include\sd_common -I..\sdk\Include\app_common -I..\sdk\Include\ble -I..\sdk\Include\ble\ble_services -I..\sdk\Include\s110 -I..\src\include\ble_transport -I..\src\include\hci_transport -I..\src\include -I..\libraries\lava_bootloader -I..\libraries\lava_capsense -I..\libraries\lava_neopixel --c99-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include-I C:\Keil\ARM\Device\Nordic\nRF51822\Include-DNRF51 -DNRF51 -DDEBUG_NRF_USER -DBOARD_NRF6310 -DBOOTLOADER_BANKED -DBLE_STACK_SUPPORT_REQD -o .\_build\sd_twi_hw_master.o --omf_browse .\_build\sd_twi_hw_master.crf --depend .\_build\sd_twi_hw_master.d)
+I (C:\Keil\ARM\ARMCC\include\stdbool.h)(0x52852AFA)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x52852AFA)
+I (..\sdk\Include\nrf.h)(0x5314F28C)
+I (..\sdk\Include\nrf51.h)(0x5314F28C)
+I (C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include\core_cm0.h)(0x512CE342)
+I (C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include\core_cmInstr.h)(0x51BB1A44)
+I (C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include\core_cmFunc.h)(0x512CE342)
+I (..\sdk\Include\system_nrf51.h)(0x5314F28C)
+I (..\sdk\Include\nrf51_bitfields.h)(0x5314F28C)
+I (..\sdk\Include\nrf51_deprecated.h)(0x5314F28C)
+I (..\sdk\Include\compiler_abstraction.h)(0x5314F28C)
+I (..\sdk\Include\twi_master.h)(0x5314F28C)
+I (..\libraries\lava_capsense\twi_master_config.h)(0x53736BA8)
+I (..\sdk\Include\nrf_gpio.h)(0x5314F28C)
+I (..\sdk\Include\nrf_delay.h)(0x5314F28C)
+I (..\sdk\Include\nrf_assert.h)(0x5314F28C)
+I (..\sdk\Include\s110\nrf_soc.h)(0x53FB46EB)
+I (..\sdk\Include\s110\nrf_svc.h)(0x5314F28C)
+I (..\sdk\Include\s110\nrf_error_soc.h)(0x5314F28C)
+I (..\sdk\Include\s110\nrf_error.h)(0x5314F28C)
+F (..\src\lumen.c)(0x541C5259)(-c --cpu Cortex-M0 -D__EVAL --li -g -O3 --apcs=interwork --enum_is_int -I.. -I..\sdk\Include -I..\sdk\Include\sd_common -I..\sdk\Include\app_common -I..\sdk\Include\ble -I..\sdk\Include\ble\ble_services -I..\sdk\Include\s110 -I..\src\include\ble_transport -I..\src\include\hci_transport -I..\src\include -I..\libraries\lava_bootloader -I..\libraries\lava_capsense -I..\libraries\lava_neopixel --c99-I C:\Keil\ARM\RV31\INC-I C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include-I C:\Keil\ARM\Device\Nordic\nRF51822\Include-DNRF51 -DNRF51 -DDEBUG_NRF_USER -DBOARD_NRF6310 -DBOOTLOADER_BANKED -DBLE_STACK_SUPPORT_REQD -o .\_build\lumen.o --omf_browse .\_build\lumen.crf --depend .\_build\lumen.d)
+I (C:\Keil\ARM\ARMCC\include\stdlib.h)(0x52852AFA)
+I (..\src\include\lumen.h)(0x5314F28C)
+I (..\src\include\sun_board.h)(0x53C050E3)
+I (..\libraries\lava_neopixel\neopixel.h)(0x541C534F)
+I (C:\Keil\ARM\ARMCC\include\stdbool.h)(0x52852AFA)
+I (C:\Keil\ARM\ARMCC\include\stdint.h)(0x52852AFA)
+I (..\sdk\Include\nrf_delay.h)(0x5314F28C)
+I (..\sdk\Include\nrf.h)(0x5314F28C)
+I (..\sdk\Include\nrf51.h)(0x5314F28C)
+I (C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include\core_cm0.h)(0x512CE342)
+I (C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include\core_cmInstr.h)(0x51BB1A44)
+I (C:\Keil\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include\core_cmFunc.h)(0x512CE342)
+I (..\sdk\Include\system_nrf51.h)(0x5314F28C)
+I (..\sdk\Include\nrf51_bitfields.h)(0x5314F28C)
+I (..\sdk\Include\nrf51_deprecated.h)(0x5314F28C)
+I (..\sdk\Include\compiler_abstraction.h)(0x5314F28C)
+I (..\sdk\Include\nrf_gpio.h)(0x5314F28C)
+I (C:\Keil\ARM\ARMCC\include\math.h)(0x52852AF4)
+I (..\sdk\Include\ble\ble_radio_notification.h)(0x5314F28C)
+I (..\sdk\Include\s110\nrf_soc.h)(0x53FB46EB)
+I (..\sdk\Include\s110\nrf_svc.h)(0x5314F28C)
+I (..\sdk\Include\s110\nrf_error_soc.h)(0x5314F28C)
+I (..\sdk\Include\s110\nrf_error.h)(0x5314F28C)
+I (..\sdk\Include\twi_master.h)(0x5314F28C)
+I (..\libraries\lava_capsense\mpr121.h)(0x5314F28C)
+I (..\sdk\Include\app_common\app_timer.h)(0x5314F28C)
+I (C:\Keil\ARM\ARMCC\include\stdio.h)(0x52852AF4)
+I (..\sdk\Include\app_common\app_error.h)(0x5314F28C)
+I (..\sdk\Include\app_common\app_util.h)(0x5314F28C)
+I (..\sdk\Include\app_common\app_scheduler.h)(0x5314F28C)

@@ -1,0 +1,25 @@
+#!/bin/bash
+
+setdfumode() {
+	export MAC
+	sudo gatttool -b $MAC -t random --char-write -a 0x000e -n 06
+}
+
+case "$1" in 
+	"billy")
+		MAC='D5:D7:81:D5:66:A1' #billy's lamp
+		setdfumode
+		;;
+	"barch")
+		MAC='D9:9F:89:C9:A3:A9' #barch's lamp
+		setdfumode
+		;;
+	"salem")
+		MAC='FC:32:A5:CE:71:D1' #salem's lamp
+		setdfumode
+		;;
+	*)
+		echo "Please tell me which lamp to flash (billy,barch,salem)"
+		exit
+		;;
+esac 

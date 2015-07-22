@@ -1,0 +1,577 @@
+#include "lava_patterns.h"
+#include "sun_board.h"
+#include "lumen.h"
+#include "btle_boilerplate.h"
+#define PATTERN_MAX 6
+
+pattern_t m_pattern = kLavaPatternFlow;
+bool lava_patterns_stepping = false;
+
+double lava_patterns_brightness_peak = 10;
+int lava_patterns_max[kNumFreqBands];
+int lava_patterns_delay_pattern = 0;
+int lava_patterns_delay_pattern2 = 0;
+int lava_patterns_delay_pattern3 = 0;
+int lava_patterns_freq_max_pos;
+int lava_patterns_freq_max = 0;
+int lava_patterns_hue_adjustment = 0;
+int lava_patterns_PPI[kNumFreqBands];
+volatile uint32_t freq[7];
+float hue = 0;
+float lasthue = 0;
+int lava_patterns_index = 0;
+int pattern_indexer = 0;
+uint8_t pattern_index_arr[] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+uint8_t pattern_index_arr1[] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+uint8_t pattern_index_arr2[] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+uint8_t pattern_index_arr3[] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+int pattern_order[PATTERN_MAX];
+int current_pattern = 0;
+bool shift = false;
+int ray_index = 0;
+
+bool pattern_data_is_updated = false;
+typedef struct {
+	float hue;
+	float saturation;
+	float value;
+} define_color_t;
+define_color_t define_colors[7];
+
+//Used to printout values to BLE
+void numtobytes(int value1, int value2, int value3) {
+	uint8_t disp_value[] = { 0, 0, 0, 0, 'f', 0, 0, 0, 0, 's', 0, 0, 0, 0, 't' };
+
+	disp_value[3] = value1 % 10;
+	disp_value[2] = (value1 - disp_value[3]) % 100;
+	disp_value[1] = (value1 - (disp_value[3] + disp_value[2])) % 1000;
+	if (value1 > 999)
+		disp_value[0] = 1;
+
+	disp_value[8] = value2 % 10;
+	disp_value[7] = (value2 - disp_value[8]) % 100;
+	disp_value[6] = (value2 - (disp_value[8] + disp_value[7])) % 1000;
+	if (value1 > 999)
+		disp_value[5] = 1;
+
+	disp_value[13] = value3 % 10;
+	disp_value[12] = (value3 - disp_value[13]) % 100;
+	disp_value[11] = (value3 - (disp_value[13] + disp_value[12])) % 1000;
+	if (value1 > 999)
+		disp_value[10] = 1;
+
+	lava_write_characteristic(disp_value);
+}
+
+void lava_patterns_init() {
+	for (int i = 0; i < kNumFreqBands; i++) {
+		lava_patterns_max[i] = 1;
+		lava_patterns_PPI[i] = 0;
+	}
+
+	define_colors[k160Hz].hue = 0;
+	define_colors[k400Hz].hue = 120;
+	define_colors[k1000Hz].hue = 240;
+	define_colors[k2500Hz].hue = 60;
+	define_colors[k6250Hz].hue = 180;
+	define_colors[k16000Hz].hue = 300;
+
+	while (!lumen_config_is_updated()) {
+		app_sched_execute();
+	}
+
+	lava_patterns_load();
+	if (pattern_order[0] == kLavaPatternBadFlash) {
+		pattern_order[0] = 0;
+		pattern_order[1] = 1;
+		pattern_order[2] = 2;
+		pattern_order[3] = 3;
+		pattern_order[4] = 4;
+		pattern_order[5] = 5;
+		lumen_config_set_pattern(pattern_order);
+		lumen_config_save_config();
+	}
+	current_pattern = pattern_order[0];
+}
+
+//Load from struct
+void lava_patterns_load() {
+	lumen_config_get_pattern(pattern_order);
+	if (pattern_order[0] >= kLavaPatternEndOfList || pattern_order[0] < 0)
+		current_pattern = kLavaPatternBadRead;
+}
+
+//Save to struct
+void lava_patterns_save() {
+	lumen_config_set_pattern(pattern_order);
+}
+
+void lava_patterns_next_pattern() {
+	lava_patterns_delay_pattern = 0;
+	lava_patterns_delay_pattern2 = 0;
+	lava_patterns_delay_pattern3 = 0;
+	hue = 0;
+	pattern_indexer = 0;
+	lasthue = 0;
+	for (int i = 0; i < 14; i++) {
+		pattern_index_arr[i] = 0;
+		pattern_index_arr1[i] = 0;
+		pattern_index_arr2[i] = 0;
+		pattern_index_arr3[i] = 0;
+	}
+	shift = false;
+	ray_index = 0;
+	lava_patterns_index++;
+	if (lava_patterns_index == PATTERN_MAX)
+		lava_patterns_index = 0;
+	current_pattern = pattern_order[lava_patterns_index];
+}
+
+void lava_patterns_step(void) {
+	lava_patterns_stepping = true;
+	switch (current_pattern) {
+	case kLavaPatternLoop: {
+		lava_patterns_index = 0;
+		current_pattern = pattern_order[lava_patterns_index];
+		break;
+	}
+
+	case kLavaPatternSun: {
+
+		if (lava_patterns_delay_pattern < 1) {
+			lava_patterns_delay_pattern = 1000;
+
+			switch (pattern_indexer) {
+			case 0:
+			case 16: {
+				float brightness = 0.1f;
+				lumen_leds_set_level_hsv(0, 220, 1.0f, brightness);
+				lumen_leds_set_level_hsv(1, 220, 1.0f, brightness);
+				lumen_leds_set_level_hsv(2, 220, 1.0f, brightness);
+				lumen_leds_set_level_hsv(3, 220, 1.0f, brightness);
+				lumen_leds_set_level_hsv(4, 30, 1.0f, 0.3f);
+				lumen_leds_set_level_hsv(5, 35, 1.0f, 0.5f);
+				lumen_leds_set_level_hsv(6, 40, 1.0f, 0.5f);
+				lumen_leds_set_level_hsv(7, 60, 0.8f, 0.5f);
+				lumen_leds_set_level_hsv(8, 120, 1.0f, brightness);
+				lumen_leds_set_level_hsv(9, 120, 1.0f, brightness);
+				break;
+			}
+
+			case 1:
+			case 15: {
+				float brightness = 0.15f;
+				lumen_leds_set_level_hsv(0, 200, 1.0f, brightness);
+				lumen_leds_set_level_hsv(1, 200, 1.0f, brightness);
+				lumen_leds_set_level_hsv(2, 200, 1.0f, brightness);
+				lumen_leds_set_level_hsv(3, 200, 1.0f, brightness);
+				lumen_leds_set_level_hsv(4, 200, 1.0f, brightness);
+				lumen_leds_set_level_hsv(5, 40, 1.0f, 0.5f);
+				lumen_leds_set_level_hsv(6, 60, 0.8f, 0.5f);
+				lumen_leds_set_level_hsv(7, 45, 1.0f, 1.0f);
+				lumen_leds_set_level_hsv(8, 120, 1.0f, brightness);
+				lumen_leds_set_level_hsv(9, 120, 1.0f, brightness);
+				break;
+			}
+			case 2:
+			case 14: {
+				float brightness = 0.2f;
+				lumen_leds_set_level_hsv(0, 190, 1.0f, brightness);
+				lumen_leds_set_level_hsv(1, 190, 1.0f, brightness);
+				lumen_leds_set_level_hsv(2, 190, 1.0f, brightness);
+				lumen_leds_set_level_hsv(3, 190, 1.0f, brightness);
+				lumen_leds_set_level_hsv(4, 190, 1.0f, brightness);
+				lumen_leds_set_level_hsv(5, 60, 0.8f, 0.5);
+				lumen_leds_set_level_hsv(6, 45, 1.0f, 1.0f);
+				lumen_leds_set_level_hsv(7, 60, 0.8f, 0.5f);
+				lumen_leds_set_level_hsv(8, 120, 1.0f, brightness);
+				lumen_leds_set_level_hsv(9, 120, 1.0f, brightness);
+				break;
+			}
+			case 3:
+			case 13: {
+				float brightness = 0.25f;
+				lumen_leds_set_level_hsv(0, 190, 1.0f, brightness);
+				lumen_leds_set_level_hsv(1, 190, 1.0f, brightness);
+				lumen_leds_set_level_hsv(2, 190, 1.0f, brightness);
+				lumen_leds_set_level_hsv(3, 190, 1.0f, brightness);
+				lumen_leds_set_level_hsv(4, 60, 0.8f, 0.5f);
+				lumen_leds_set_level_hsv(5, 45, 1.0f, 1.0f);
+				lumen_leds_set_level_hsv(6, 60, 0.8f, 0.5f);
+				lumen_leds_set_level_hsv(7, 190, 1.0f, brightness);
+				lumen_leds_set_level_hsv(8, 120, 1.0f, brightness);
+				lumen_leds_set_level_hsv(9, 120, 1.0f, brightness);
+				break;
+			}
+			case 4:
+			case 12: {
+				float brightness = 0.3f;
+				lumen_leds_set_level_hsv(0, 190, 1.0f, brightness);
+				lumen_leds_set_level_hsv(1, 190, 1.0f, brightness);
+				lumen_leds_set_level_hsv(2, 190, 1.0f, brightness);
+				lumen_leds_set_level_hsv(3, 60, 0.8f, 0.5f);
+				lumen_leds_set_level_hsv(4, 45, 1.0f, 1.0f);
+				lumen_leds_set_level_hsv(5, 60, 0.8f, 0.5f);
+				lumen_leds_set_level_hsv(6, 190, 1.0f, brightness);
+				lumen_leds_set_level_hsv(7, 190, 1.0f, brightness);
+				lumen_leds_set_level_hsv(8, 120, 1.0f, brightness);
+				lumen_leds_set_level_hsv(9, 120, 1.0f, brightness);
+				break;
+			}
+			case 5:
+			case 11: {
+				float brightness = 0.35f;
+				lumen_leds_set_level_hsv(0, 190, 1.0f, brightness);
+				lumen_leds_set_level_hsv(1, 190, 1.0f, brightness);
+				lumen_leds_set_level_hsv(2, 60, 0.8f, 0.5f);
+				lumen_leds_set_level_hsv(3, 45, 1.0f, 1.0f);
+				lumen_leds_set_level_hsv(4, 60, 0.8f, 0.5f);
+				lumen_leds_set_level_hsv(5, 190, 1.0f, brightness);
+				lumen_leds_set_level_hsv(6, 190, 1.0f, brightness);
+				lumen_leds_set_level_hsv(7, 190, 1.0f, brightness);
+				lumen_leds_set_level_hsv(8, 120, 1.0f, brightness);
+				lumen_leds_set_level_hsv(9, 120, 1.0f, brightness);
+				break;
+			}
+			case 6:
+			case 10: {
+				float brightness = 0.4f;
+				lumen_leds_set_level_hsv(0, 190, 1.0f, brightness);
+				lumen_leds_set_level_hsv(1, 60, 0.8f, 0.5f);
+				lumen_leds_set_level_hsv(2, 45, 1.0f, 1.0f);
+				lumen_leds_set_level_hsv(3, 60, 0.8f, 0.5f);
+				lumen_leds_set_level_hsv(4, 190, 1.0f, brightness);
+				lumen_leds_set_level_hsv(5, 190, 1.0f, brightness);
+				lumen_leds_set_level_hsv(6, 190, 1.0f, brightness);
+				lumen_leds_set_level_hsv(7, 190, 1.0f, brightness);
+				lumen_leds_set_level_hsv(8, 120, 1.0f, brightness);
+				lumen_leds_set_level_hsv(9, 120, 1.0f, brightness);
+				break;
+			}
+			case 7:
+			case 9: {
+				float brightness = 0.45f;
+				lumen_leds_set_level_hsv(0, 60, 0.8f, 0.5f);
+				lumen_leds_set_level_hsv(1, 45, 1.0f, 1.0f);
+				lumen_leds_set_level_hsv(2, 60, 0.8f, 0.5f);
+				lumen_leds_set_level_hsv(3, 190, 1.0f, brightness);
+				lumen_leds_set_level_hsv(4, 190, 1.0f, brightness);
+				lumen_leds_set_level_hsv(5, 190, 1.0f, brightness);
+				lumen_leds_set_level_hsv(6, 190, 1.0f, brightness);
+				lumen_leds_set_level_hsv(7, 190, 1.0f, brightness);
+				lumen_leds_set_level_hsv(8, 120, 1.0f, brightness);
+				lumen_leds_set_level_hsv(9, 120, 1.0f, brightness);
+				break;
+			}
+			case 8: {
+				float brightness = 0.5f;
+
+				lumen_leds_set_level_hsv(0, 45, 1.0f, 1.0f);
+				lumen_leds_set_level_hsv(1, 45, 1.0f, 1.0f);
+				lumen_leds_set_level_hsv(2, 60, 0.8f, 0.5f);
+				lumen_leds_set_level_hsv(3, 190, 1.0f, brightness);
+				lumen_leds_set_level_hsv(4, 190, 1.0f, brightness);
+				lumen_leds_set_level_hsv(5, 190, 1.0f, brightness);
+				lumen_leds_set_level_hsv(6, 190, 1.0f, brightness);
+				lumen_leds_set_level_hsv(7, 190, 1.0f, brightness);
+				lumen_leds_set_level_hsv(8, 120, 1.0f, brightness);
+				lumen_leds_set_level_hsv(9, 120, 1.0f, brightness);
+				break;
+			}
+			default: {
+				float brightness = 0.1f;
+				lumen_leds_set_level_hsv(0, 240, 1.0f, brightness);
+				lumen_leds_set_level_hsv(1, 240, 1.0f, brightness);
+				lumen_leds_set_level_hsv(2, 240, 1.0f, brightness);
+				lumen_leds_set_level_hsv(3, 240, 1.0f, brightness);
+				lumen_leds_set_level_hsv(4, 240, 1.0f, brightness);
+				lumen_leds_set_level_hsv(5, 240, 1.0f, brightness);
+				lumen_leds_set_level_hsv(6, 240, 1.0f, brightness);
+				lumen_leds_set_level_hsv(7, 240, 1.0f, brightness);
+				lumen_leds_set_level_hsv(8, 120, 1.0f, brightness);
+				lumen_leds_set_level_hsv(9, 120, 1.0f, brightness);
+				lumen_leds_set_pixel_rgb(0, 0, 50, 50, 50);
+				lumen_leds_set_pixel_rgb(0, 4, 50, 50, 50);
+				lumen_leds_set_pixel_rgb(1, 1, 50, 50, 50);
+				lumen_leds_set_pixel_rgb(2, 0, 50, 50, 50);
+				lumen_leds_set_pixel_rgb(2, 3, 50, 50, 50);
+				lumen_leds_set_pixel_rgb(3, 2, 50, 50, 50);
+				pattern_indexer = -1;
+				break;
+			}
+			}
+			pattern_indexer++;
+		} else
+			nrf_delay_us(150);
+		lava_patterns_delay_pattern--;
+		break;
+	}
+
+	case kLavaPatternMatrix: {
+
+		if (lava_patterns_delay_pattern < 1) {
+			lava_patterns_delay_pattern = 3;
+
+			if (freq[k160Hz] % 5 == 0) {
+				pattern_index_arr[0] = 1;
+				pattern_index_arr[1] = 3;
+				pattern_index_arr[2] = 5;
+				pattern_index_arr[3] = 5;
+				pattern_index_arr[4] = 10;
+			}
+			if (freq[k400Hz] % 5 == 0) {
+				pattern_index_arr1[0] = 1;
+				pattern_index_arr1[1] = 3;
+				pattern_index_arr1[2] = 5;
+				pattern_index_arr1[3] = 5;
+				pattern_index_arr1[4] = 10;
+			}
+			if (freq[k1000Hz] % 5 == 0) {
+				pattern_index_arr2[0] = 1;
+				pattern_index_arr2[1] = 3;
+				pattern_index_arr2[2] = 5;
+				pattern_index_arr2[3] = 5;
+				pattern_index_arr2[4] = 10;
+			}
+			if (freq[k63Hz] % 5 == 0) {
+				pattern_index_arr3[0] = 1;
+				pattern_index_arr3[1] = 3;
+				pattern_index_arr3[2] = 5;
+				pattern_index_arr3[3] = 5;
+				pattern_index_arr3[4] = 10;
+			}
+			lumen_leds_set_solid_rgb(0, 0, 0);
+			for (int j = 13; j >= 4; j--) {
+				lumen_leds_set_pixel_hsv(0, j - 4, 120, 1.0f,
+						(float) pattern_index_arr[j] / 10.0f);
+				lumen_leds_set_pixel_hsv(1, j - 4, 120, 1.0f,
+						(float) pattern_index_arr1[j] / 10.0f);
+				lumen_leds_set_pixel_hsv(2, j - 4, 120, 1.0f,
+						(float) pattern_index_arr2[j] / 10.0f);
+				lumen_leds_set_pixel_hsv(3, j - 4, 120, 1.0f,
+						(float) pattern_index_arr3[j] / 10.0f);
+			}
+
+			for (int j = 13; j > 0; j--) {
+				pattern_index_arr[j] = pattern_index_arr[j - 1];
+				pattern_index_arr1[j] = pattern_index_arr1[j - 1];
+				pattern_index_arr2[j] = pattern_index_arr2[j - 1];
+				pattern_index_arr3[j] = pattern_index_arr3[j - 1];
+			}
+			pattern_index_arr[0] = 0;
+
+		} else
+			nrf_delay_us(150);
+		lava_patterns_delay_pattern--;
+
+		break;
+	}
+
+	case kLavaPatternBlocks: {
+		if (lava_patterns_delay_pattern < 1) {
+			lava_patterns_delay_pattern = 4;
+			lumen_leds_set_pixel_hsv(ray_index, pattern_indexer, hue, 1.0f,
+					0.5f);
+			lumen_leds_set_pixel_hsv(ray_index, pattern_indexer + 1, hue, 1.0f,
+					0.5f);
+			pattern_indexer += 2;
+			if (pattern_indexer == kSunBoardNumberOfLedsPerRay) {
+				hue = hue + 101;
+				pattern_indexer = 0;
+			}
+
+			if (hue > 359)
+				hue -= 360;
+			ray_index++;
+			if (ray_index > 3)
+				ray_index = 0;
+		} else
+			nrf_delay_us(150);
+
+		lava_patterns_delay_pattern--;
+
+		break;
+	}
+
+	case kLavaPatternLines: {
+		if (lava_patterns_delay_pattern < 1) {
+			lava_patterns_delay_pattern = 4;
+			float brightnessDown = 1.0;
+			float brightnessUp = 1.0;
+			if (pattern_indexer == kSunBoardNumberOfLedsPerRay)
+				pattern_indexer = 0;
+
+			lumen_leds_set_pixel_hsv(0, pattern_indexer, 240, 1.0f,
+					brightnessDown);
+			lumen_leds_set_pixel_hsv(2, pattern_indexer, 240, 1.0f,
+					brightnessDown);
+			lumen_leds_set_pixel_hsv(1,
+			kSunBoardNumberOfLedsPerRay - (pattern_indexer + 1), 240, 1.0f,
+					brightnessUp);
+			lumen_leds_set_pixel_hsv(3,
+			kSunBoardNumberOfLedsPerRay - (pattern_indexer + 1), 240, 1.0f,
+					brightnessUp);
+
+			//Set the fade from LED 0 to the head LED
+			brightnessUp = ((float) kSunBoardNumberOfLedsPerRay
+					- ((float) pattern_indexer + 1.0f)) / 10;
+			brightnessDown = ((float) kSunBoardNumberOfLedsPerRay
+					- ((float) pattern_indexer + 1.0f)) / 10;
+			for (int j = 0; j < pattern_indexer; j++) {	//line going down
+				brightnessDown += 0.1f;
+				lumen_leds_set_pixel_hsv(0, j, 240, 1.0f, brightnessDown);
+				lumen_leds_set_pixel_hsv(2, j, 240, 1.0f, brightnessDown);
+
+			}
+			for (int j = 0;
+					j < kSunBoardNumberOfLedsPerRay - (pattern_indexer + 1);
+					j++) { //line going up
+				lumen_leds_set_pixel_hsv(1, j, 240, 1.0f, brightnessUp);
+				lumen_leds_set_pixel_hsv(3, j, 240, 1.0f, brightnessUp);
+				brightnessUp -= 0.1f;
+			}
+
+			//Set the fade from LED 9 to the head led
+			brightnessUp = ((float) kSunBoardNumberOfLedsPerRay
+					- ((float) pattern_indexer + 1.0f)) / 10;
+			brightnessDown = ((float) kSunBoardNumberOfLedsPerRay
+					- ((float) pattern_indexer + 1.0f)) / 10;
+			for (int j = kSunBoardNumberOfLedsPerRay - 1; j > pattern_indexer;
+					j--) { //line going down
+				lumen_leds_set_pixel_hsv(0, j, 240, 1.0f, brightnessDown);
+				lumen_leds_set_pixel_hsv(2, j, 240, 1.0f, brightnessDown);
+				brightnessDown -= 0.1f;
+			}
+			for (int j = kSunBoardNumberOfLedsPerRay - 1;
+					j > kSunBoardNumberOfLedsPerRay - (pattern_indexer + 1);
+					j--) { //line going up
+				brightnessUp += 0.1f;
+				lumen_leds_set_pixel_hsv(1, j, 240, 1.0f, brightnessUp);
+				lumen_leds_set_pixel_hsv(3, j, 240, 1.0f, brightnessUp);
+			}
+			pattern_indexer++;
+		} else
+			nrf_delay_us(150);
+		lava_patterns_delay_pattern--;
+		break;
+	}
+
+		//WIP of using a vector and the entire range of frequencies to make a light show.
+	case kLavaPatternVector: {
+
+		float value = ((float) lava_patterns_brightness_peak / 10);
+		//Delay between changing the hue(150ms)
+		if (lava_patterns_delay_pattern < 1) {
+			lava_patterns_delay_pattern = 3;
+			lasthue = hue;
+			hue = define_colors[lava_patterns_freq_max_pos].hue;
+			//Goes through each frequency band and assigns the saturation to be scaled off of max freqency power
+			//Then assigns the output hue to a combination of each frequency's base defined hue scaled by its saturation.
+			//This again, all relative to the max frequency power and its defined hue.
+			//See define_colors[] for more information.
+			for (int i = 0; i < kNumFreqBands; i++) {
+				if (i != lava_patterns_freq_max_pos) {
+					float num = ((float) (lava_patterns_max[i]));
+					float den = ((float) (lava_patterns_freq_max));
+					define_colors[i].saturation = (num / den) / 2;
+					//			adctobyte(num, lava_patterns_freq_max, define_colors[i].saturation);
+					if (i == k160Hz
+							&& define_colors[lava_patterns_freq_max_pos].hue
+									> 180) {
+						hue =
+								hue
+										+ ((360.0
+												- define_colors[lava_patterns_freq_max_pos].hue)
+												* define_colors[i].saturation);
+					} else if (define_colors[i].hue
+							< define_colors[lava_patterns_freq_max_pos].hue) {
+						hue =
+								hue
+										- ((define_colors[lava_patterns_freq_max_pos].hue
+												- define_colors[i].hue)
+												* define_colors[i].saturation);
+					} else {
+						hue =
+								hue
+										+ ((define_colors[i].hue
+												- define_colors[lava_patterns_freq_max_pos].hue)
+												* define_colors[i].saturation);
+					}
+				}
+			}
+			if (hue > 359)
+				hue = hue - 360;
+			if (hue < 0)
+				hue = hue + 360;
+			hue = (0.85 * hue + 0.15 * lasthue);
+		}
+
+		//It only assigns a hue in the end because it uses the previous saturations
+		//only as a modifier to scale the hues.
+		//May eventually need to actually blend saturations and use the outcome.
+		lumen_leds_set_solid_hsv(hue, 1.0f, value);
+		lava_patterns_delay_pattern--;
+		lava_patterns_freq_max = 1;
+		lava_patterns_brightness_peak -= 2;
+		if (lava_patterns_brightness_peak < 1)
+			lava_patterns_brightness_peak = 1;
+		break;
+	}
+
+		//Billy's Flow Pattern with 400Hz detection to start flow.
+	case kLavaPatternFlow: {
+		float value = ((float) lava_patterns_brightness_peak / 10);
+		//lava_patterns_400Hz_max = 1;
+		hue += 1
+				+ (9.0f * (float) lava_patterns_max[k400Hz])
+						/ (1.0f * (float) lava_patterns_freq_max);
+
+		if (hue > 359)
+			hue = hue - 360;
+		for (int j = 0; j < kSunBoardNumberOfLedsPerRay; j++) {
+			lumen_leds_set_level_hsv(j, hue + (10 * j), 1.0f, value);
+		}
+
+		//Brightness peak decay
+		lava_patterns_brightness_peak -= 2;
+		if (lava_patterns_brightness_peak < 1)
+			lava_patterns_brightness_peak = 1;
+
+		lava_patterns_max[k1000Hz] = 100;
+		lava_patterns_max[k400Hz] = 1;
+		break;
+	}
+
+		//Light is off
+	case kLavaPatternOff: {
+		//ADC(or something else) is interrupting the LEDs if they update too early.
+		//So, we need roughly 100useconds of time before we update LEDs.
+		//If light is not on, reset the LEDs to off before updating them.
+		lumen_leds_set_solid_rgb(0, 0, 0);
+		break;
+	}
+
+		//Could not write to flash memory
+	case kLavaPatternBadFlash: {
+		lumen_leds_set_solid_rgb(50, 50, 50);
+		break;
+	}
+
+		//Could not interpret data read from flash memory.
+	case kLavaPatternBadRead: {
+		lumen_leds_set_solid_rgb(150, 0, 0);
+		break;
+	}
+
+	default: {
+		lumen_leds_set_solid_rgb(255, 255, 255);
+		m_pattern = kLavaPatternFlow;
+	}
+	}
+	for (int i = 0; i < kNumFreqBands; i++) {
+		lava_patterns_max[i] = 1;
+		lava_patterns_PPI[i] = 0;
+	}
+	lava_patterns_stepping = false;
+}
+

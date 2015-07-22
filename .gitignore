@@ -1,0 +1,4 @@
+.DS_Store
+*.db
+workspace.xml
+_build/
